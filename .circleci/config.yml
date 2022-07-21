@@ -76,7 +76,21 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ansible-playbook -i inventory main.yml 
+            ansible-playbook -i inventory main.yml
+  #Excercise Promote to Production
+  create_cloudfront: 
+      docker:
+        - image: amazon/aws-cli
+      steps:
+        - checkout
+        - run:
+            name: Create Cloudformation Stack
+            command: |
+              aws cloudformation deploy \
+                --template-file cloudfront.yml \
+                --stack-name production-distro \
+                --parameter-overrides PipelineID="mybucket1975779" \ 
+                --tags project=udapeople &
 
           
 # Sequential workflow
@@ -84,6 +98,6 @@ workflows:
   # Name the workflow
   cloudworkflows:
     jobs:
-      - smoke_test
-      - create_infrastructure
+      #- smoke_test
+      #- create_infrastructure
       #- configure_infrastructure
