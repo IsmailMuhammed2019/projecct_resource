@@ -1,7 +1,7 @@
 Parameters:
   # New Bucket name
   MyBucketName:
-    Description: Existing Bucket name
+    Description: mybucket1975779
     Type: String
 
 Resources:
