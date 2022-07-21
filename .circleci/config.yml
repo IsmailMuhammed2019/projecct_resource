@@ -21,7 +21,6 @@ jobs:
 # Sequential workflow
 workflows:
   # Name the workflow
-  myWorkflow:
+  cloudworkflows:
     jobs:
-      - myjob1
-      - myjob2
+      - create_infrastructure
