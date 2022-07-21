@@ -26,9 +26,9 @@ jobs:
             name: create webserver
             command: |
               ansible-playbook \
-                main-remote.yml \
-                -i inventory \
-                --private-key project_udacity    
+              main-remote.yml \
+              -i inventory \
+              --private-key project_udacity    
 # Sequential workflow
 workflows:
   # Name the workflow
